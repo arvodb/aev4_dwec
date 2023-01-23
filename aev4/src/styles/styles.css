@@ -136,7 +136,7 @@ h1 {
   justify-content: center;
 }
 .activity {
-  background-color: black;
+  background-color: #2176FF;
   box-sizing: border-box;
   width: 120px;
   height: 100px;
@@ -152,7 +152,7 @@ h1 {
 
 @font-face {
   font-family: 'Croissant One';
-  src: url("styles/fonts/CroissantOne-Regular.ttf");
+  src: url("fonts/CroissantOne-Regular.ttf");
 }
 html {
   font-size: 18px;
