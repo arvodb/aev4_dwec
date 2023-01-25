@@ -1,6 +1,6 @@
 export const gameOne = {
   levelOne: {
-    adjectives: [
+    adjectivesOne: [
       'loud', 
       'husky', 
       'harsh', 
@@ -10,7 +10,7 @@ export const gameOne = {
     ],
   },
   levelTwo: {
-    adjectives: [
+    adjectivesOne: [
       'large',
       'fat',
       'big',
@@ -79,16 +79,16 @@ export const gameOne = {
       'real',
       'rich',
       'right',
-    ],
+    ]
   },
 };
 
-export let gameTwo = {
+export const gameTwo = {
   levelOne: {
-    adjectives: ['harsh', 'brainy', 'dusty', 'straight'],
+    adjectivesOne: ['harsh', 'brainy', 'dusty', 'straight'],
   },
   levelTwo: {
-    adjectives: [
+    adjectivesOne: [
       'square',
       'fat',
       'sleepy',
@@ -154,14 +154,14 @@ export let gameTwo = {
       'open',
       'slippery',
       'raspy',
-    ],
+    ]
   },
 };
 
 
 
 export const gameThree = {
-  adjectives: [
+  adjectivesOne: [
     "relieved",
     "envious",
     "successful",

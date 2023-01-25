@@ -3,13 +3,8 @@
       <div class="div">
         <h1>Let's play!</h1>
         <table style="margin-left:auto;margin-right:auto;">
-          <tr>
-            <td class="activity"></td>
-            <td class="activity"></td>
-          </tr>
-          <tr>
-            <td class="activity">asdfsd</td>
-            <td class="activity"></td>
+          <tr *ngFor="let row of currentTable">
+            <td *ngFor="let adj of row" class="activity">{{adj}}</td>
           </tr>
         </table>
       </div>
