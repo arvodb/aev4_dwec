@@ -8,6 +8,7 @@ import { AdjectivesGameOne,AdjectivesGameTwo,AdjectivesGameThree } from './inter
 })
 export class AppComponent {
 
+  public gameStart : boolean = false;
   public rows : number = 0;
   public cols : number = 0;
   public gameNumber : number = 0; // <= Esta variable controla en que juego estamos. 
@@ -26,12 +27,13 @@ export class AppComponent {
   public currentGame : any = this.allGames[this.gameNumber];// <= Contiene la estructura del juego actual => Ver setCurrentAdjectiveSet
   
   public currentAdjectiveSet : string[] = [];// <= Contiene el set de adjetivos del NIVEL(gameLvl) en el que estamos => Ver setCurrentAdjectiveSet
-  public currentTable :string[][] = [[]];// <= Contiene un array con los adjetivos de currentAdjetiveSet pero con la forma de la tabla; => Ver setCurrentTable
+  public currentTable :string[][] = [['',''],['','']];// <= Contiene un array con los adjetivos de currentAdjetiveSet pero con la forma de la tabla; => Ver setCurrentTable
 
   public gameControl() : void 
   {
     switch(this.gameNumber){
       case(0):
+        this.gameStart = true;
         this.setRowsCols();
         this.setCurrentAdjectiveSet()
         this.currentTable = this.setCurrentTable();
@@ -147,8 +149,7 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.gameControl(); // <= setea valores de rows y columnas en función de rowsColsSchema();
-    //console.log(this.currentGame.levelThree.adjectivesThree);
+   
   }
 
 

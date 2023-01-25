@@ -1,0 +1,10 @@
+<div>
+    <!--Cuando el usuario hace click en la palabra, se reproduce el audio y guarda las variables-->
+    <h1 (click)="onClick()">{{palabra}}</h1>
+    <!--Cuando los sinónimos estén la variable, el bucle for los sacará-->
+    <div *ngFor="let item of sinonimos">
+        <p>{{item}}</p>
+    </div>
+    <!--Parrafo de prueba-->
+    <p>{{prueba}}</p>
+</div>

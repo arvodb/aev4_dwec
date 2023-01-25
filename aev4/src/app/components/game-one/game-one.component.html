@@ -1,1 +1,5 @@
-<p>game-one works!</p>
+<table style="margin-left:auto;margin-right:auto;">
+    <tr *ngFor="let row of currentTable">
+      <td *ngFor="let adj of row" class="activity">{{adj}}</td>
+    </tr>
+  </table>
