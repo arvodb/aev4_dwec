@@ -1,4 +1,4 @@
-export interface AdjetivesGameOne {
+export interface AdjectivesGameOne {
     levelOne: {
         adjectivesOne: string[];
     };
@@ -11,7 +11,7 @@ export interface AdjetivesGameOne {
         adjectivesThree: string[];
     }
 }
-export interface AdjetivesGameTwo {
+export interface AdjectivesGameTwo {
     levelOne: {
         adjectivesOne: string[];
     };
@@ -24,6 +24,6 @@ export interface AdjetivesGameTwo {
         adjectivesThree: string[];
     }
 }
-export interface AdjetivesGameThree {
+export interface AdjectivesGameThree {
     adjectivesOne: string[];
 }
