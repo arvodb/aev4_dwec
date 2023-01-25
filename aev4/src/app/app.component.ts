@@ -11,7 +11,8 @@ export class AppComponent {
   public rows : number = 0;
   public cols : number = 0;
   public gameNumber : number = 0; // <= Esta variable controla en que juego estamos. 
-  public gameLvl : number = 2 // <= esta variable controla en lvl dentro de cada juego. ver function setRowsCols()
+  public gameLvl : number = 0; // <= esta variable controla en lvl dentro de cada juego. ver function setRowsCols
+
   public rowsColsSchema : string[] = ['2','3','4'];//Esta variable sirve para definir las el formato según el nivel en el que estamos
 
   /* VARIABLES QUE CONTIENEN LA INFO DE CADA JUEGO */
@@ -29,9 +30,26 @@ export class AppComponent {
 
   public gameControl() : void 
   {
+    switch(this.gameNumber){
+      case(0):
         this.setRowsCols();
         this.setCurrentAdjectiveSet()
         this.currentTable = this.setCurrentTable();
+        break;
+      case(1):
+        this.resetValues(); // <= resetea rows, cols y  gameLvl / suma 1 a gameNumber
+        this.setRowsCols();
+        this.setCurrentAdjectiveSet()
+        this.currentTable = this.setCurrentTable();
+        break;
+      case(2):
+        this.resetValues()
+        this.gameLvl = 2; // <= Es necesario para cuando pasa por la función => setCurrentAdjectiveSet
+        this.setRowsCols();
+        this.setCurrentAdjectiveSet()
+        this.currentTable = this.setCurrentTable();
+    }
+
   }
 
   public createValidArr() : string[][]
@@ -80,18 +98,15 @@ export class AppComponent {
     switch(this.gameLvl){
       case 0:
         adjectiveSet = this.currentGame.levelOne.adjectivesOne;
-                                           //^
         break;
       case 1:
         adjectiveSet = this.currentGame.levelTwo.adjectivesOne;
-                                            //^
         break;
       case 2:
         if(this.gameNumber < 2){ // <= ver estructura gameTree.levelThree
           adjectiveSet = this.setAdjetiveForLvlThree(); //barajea entre los 3 sets de adjetivos.
-          
         } else {
-          adjectiveSet.push(this.currentGame.adjectivesOne); // <= la estructura del gameThree es diferente
+          adjectiveSet = this.currentGame.adjectivesOne; // <= la estructura del gameThree es diferente ! es necesario setear el gameLvl a 2;
         }
         break;
     }
@@ -123,10 +138,17 @@ export class AppComponent {
     this.rows = parseInt(this.rowsColsSchema[this.gameLvl]);
     this.cols = parseInt(this.rowsColsSchema[this.gameLvl]);
   }
+
+  public resetValues() : void {
+    this.rows = 0;
+    this.cols = 0;
+    this.gameLvl = 0;
+    this.gameNumber += 1;
+  }
+
   ngOnInit(){
     this.gameControl(); // <= setea valores de rows y columnas en función de rowsColsSchema();
     //console.log(this.currentGame.levelThree.adjectivesThree);
-    
   }
 
 
