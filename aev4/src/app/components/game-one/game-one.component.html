@@ -1,5 +1,12 @@
-<table style="margin-left:auto;margin-right:auto;">
+<div [ngSwitch]="gameStart">
+  <table *ngSwitchCase="true" style="margin-left: auto; margin-right: auto">
     <tr *ngFor="let row of currentTable">
-      <td *ngFor="let adj of row" class="activity">{{adj}}</td>
+      <td *ngFor="let adj of row" class="activity">{{ adj }}</td>
     </tr>
   </table>
+  <table *ngSwitchCase="false" style="margin-left: auto; margin-right: auto">
+    <tr *ngFor="let row of currentTable">
+      <td *ngFor="let adj of row" class="activity">{{ adj }}</td>
+    </tr>
+  </table>
+</div>
