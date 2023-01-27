@@ -7,6 +7,7 @@ import { GameOneComponent } from './components/game-one/game-one.component';
 import { GameTwoComponent } from './components/game-two/game-two.component';
 import { GameThreeComponent } from './components/game-three/game-three.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { GameThreeComponent } from './components/game-three/game-three.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
