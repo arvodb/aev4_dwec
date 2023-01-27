@@ -28,23 +28,38 @@ export class AppComponent {
 
   public currentAdjectiveSet: string[] = [];// <= Contiene el set de adjetivos del NIVEL(gameLvl) en el que estamos => Ver setCurrentAdjectiveSet
   public currentTable: string[][] = [['', ''], ['', '']];// <= Contiene un array con los adjetivos de currentAdjetiveSet pero con la forma de la tabla; => Ver setCurrentTable
-  public activeAdjectives : FlatArray<string[], 0 | 3 | 1 | 2 | 4>[] = [];
+  //public activeAdjectives : FlatArray<string[], 0 | 3 | 1 | 2 | 4>[] = [];
+  public activeAdjectives : string[][] =[[]];
+
+  ngOnInit(){
+    //responses necesarias para el
+    this.gameOneActiveSets();
+  }
+
+  public gameOneActiveSets() : void
+  {
+    this.gameStart = true;
+    this.setRowsCols();
+    this.setCurrentAdjectiveSet(); // ejecutamos
+    let maxLevels = (this.gameNumber != 2 ) ? 3 : 1;
+    for ( let i  = 0 ;  i < maxLevels ; i++ ){
+      this.activeAdjectives[i] = this.createValidArr(this.currentAdjectiveSet)
+    }
+    console.log(this.activeAdjectives);
+  }
 
   public gameControl(): void {
     switch (this.gameNumber) {
       case (0):
-        this.gameStart = true;
-        this.setRowsCols();
-        this.setCurrentAdjectiveSet()
+
+        //
         let interval =  setInterval(() => {
-          this.currentTable = this.setCurrentTable(this.currentAdjectiveSet)
+          this.currentTable =
+          this.transformInTable(this.sortAdjectiveSet(this.activeAdjectives[this.gameLvl]))
         }, 100)
 
         setTimeout(() => {
           clearInterval(interval);
-          this.currentTable = this.setCurrentTable(this.currentAdjectiveSet)
-          this.activeAdjectives = this.currentTable.flat(2);
-          console.log(this.activeAdjectives)
         }, 3000)
         break;
       case (1):
@@ -92,6 +107,7 @@ export class AppComponent {
         i--;
       }
     }
+    console.log(output);
     return output;
   }
   public numRepitions(arr: string[], newItem: string): number {
